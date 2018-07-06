@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoriesEdgeAdmin", "MemoriesEdgeAdmin\MemoriesEdgeAdmin.csproj", "{5E1A47CC-B1FF-4F93-9920-392903F18139}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2B63F127-A83F-4A1B-9487-671D408B205E} = {2B63F127-A83F-4A1B-9487-671D408B205E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoriesEdgeAdmin.Web", "MemoriesEdgeAdmin.Web\MemoriesEdgeAdmin.Web.csproj", "{2B63F127-A83F-4A1B-9487-671D408B205E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E1A47CC-B1FF-4F93-9920-392903F18139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E1A47CC-B1FF-4F93-9920-392903F18139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E1A47CC-B1FF-4F93-9920-392903F18139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E1A47CC-B1FF-4F93-9920-392903F18139}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B63F127-A83F-4A1B-9487-671D408B205E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B63F127-A83F-4A1B-9487-671D408B205E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B63F127-A83F-4A1B-9487-671D408B205E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B63F127-A83F-4A1B-9487-671D408B205E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

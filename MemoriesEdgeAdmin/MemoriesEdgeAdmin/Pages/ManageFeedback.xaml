@@ -1,0 +1,114 @@
+﻿<navigation:Page xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="MemoriesEdgeAdmin.Pages.ManageFeedback" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="357" d:DesignHeight="413"
+           Title="ManageFeedback Page" Loaded="Page_Loaded">
+    <StackPanel Height="413" Width="361">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <sdk:Label Grid.Row="0" Height="20" HorizontalAlignment="Left" Name="lblMsg" Foreground="Red" />
+            <Border Grid.Row="1">
+                <StackPanel>
+                    <Grid Width="355">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="161*"></ColumnDefinition>
+                            <ColumnDefinition Width="241*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <sdk:Label Height="20" HorizontalAlignment="Left" Name="label1"  Content="FeedBack Question" FontWeight="Bold" />
+                        <sdk:Label Grid.Row="1" Height="20" HorizontalAlignment="Left" Name="label2"  Content="Status" FontWeight="Bold"  />
+                        <TextBox Grid.Column="1" Height="20" HorizontalAlignment="Left" Name="txtFeedBackQuestion" Width="150"  />
+                        <ComboBox Grid.Column="1" Grid.Row="1" Height="20" HorizontalAlignment="Left" Name="ddlFeedbackQuestionStatus"  >
+                            <ComboBoxItem Content="Active" IsSelected="True" />
+                            <ComboBoxItem Content="InActive" />
+                            
+                        </ComboBox>
+                        <Button Content="Save" Grid.Row="1" Grid.Column="1" Height="23" HorizontalAlignment="Right"  Name="btnSave" Width="75" Click="btnSave_Click" />
+                        <sdk:DataGrid AutoGenerateColumns="False" Grid.Row="2" Grid.ColumnSpan="2" Height="Auto" HorizontalAlignment="Center"  Name="gvQuestions" Width="Auto" >
+                            <sdk:DataGrid.Columns>
+                                <sdk:DataGridTextColumn Header="Question" Binding="{Binding Path=FeedbackQuestion}"></sdk:DataGridTextColumn>
+                                <sdk:DataGridTemplateColumn Header="Answer" >
+                                    <sdk:DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <HyperlinkButton  CommandParameter="{Binding Path=FeedbackQuestionId}" Name="hlAnswer" Content="Answer" Click="hlAnswer_Click" />
+                                        </DataTemplate>
+                                    </sdk:DataGridTemplateColumn.CellTemplate>
+                                </sdk:DataGridTemplateColumn>
+                                <sdk:DataGridTextColumn Header="Status" Binding="{Binding Path=Status}"/>
+                                <sdk:DataGridTemplateColumn>
+                                    <sdk:DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <HyperlinkButton Name="hlEdit" Click="hlEdit_Click" Content="Edit" CommandParameter="{Binding Path=FeedbackQuestionId}" />
+                                        </DataTemplate>
+                                    </sdk:DataGridTemplateColumn.CellTemplate>
+                                </sdk:DataGridTemplateColumn>
+                            </sdk:DataGrid.Columns>
+                        </sdk:DataGrid>
+                        <sdk:DataPager Height="26" x:Name="DataPager1" PageSize="3" Source="{Binding Path=ItemSource,ElementName=gvOperator}" DisplayMode="FirstLastNumeric" Width="70" Grid.Row="3" Grid.ColumnSpan="2"  />
+                    </Grid>
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="2">
+                <StackPanel  x:Name="stck2">
+                    <Grid Height="Auto" Width="355">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20*"></RowDefinition>
+                            <RowDefinition Height="20*"></RowDefinition>
+                            <RowDefinition Height="20*"></RowDefinition>
+                            <RowDefinition Height="20*"></RowDefinition>
+                            <RowDefinition Height="126*"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="157*" />
+                            <ColumnDefinition Width="241*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Content="Back To Feedback Question" Height="20" HorizontalAlignment="Left" Name="btnBackToFeedbackQuestion"  Click="btnBackToFeedbackQuestion_Click" Grid.Column="2" Margin="0,2" />
+                        <sdk:Label Grid.Row="1" Height="20"  Name="lab2" Width="120" Content="Feedback Question" FontWeight="Bold" Grid.ColumnSpan="2"  Grid.Column="0" HorizontalAlignment="Left" />
+                        <sdk:Label Grid.Column="1" Grid.Row="2" Height="28"  Name="label3" Content="Feedback Answer"  FontWeight="Bold" HorizontalAlignment="Left"/>
+                        <sdk:Label Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left"  Name="label4" Content="Status" FontWeight="Bold" Width="120" />
+                        <sdk:Label Grid.Row="1" Grid.Column="2" Height="20"  HorizontalAlignment="Left" Name="lblFeedbackQuestion" Width="Auto" />
+                        <TextBox Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Left"  Name="txtFeedbackAnswer"  Width="159" AcceptsReturn="True"  />
+                        <ComboBox Grid.Row="3" Grid.Column="2" Height="20" HorizontalAlignment="Left" Name="ddlFeedbackAnswerStatus" VerticalAlignment="Top" Width="80" >
+                            <ComboBoxItem Content="Active" IsSelected="True" />
+                            <ComboBoxItem Content="InActive" />
+                        </ComboBox>
+                        <sdk:DataGrid AutoGenerateColumns="False" Grid.Row="4" Grid.ColumnSpan="2" Height="Auto" HorizontalAlignment="Center"  Name="gvAnswer" Width="Auto"  Grid.Column="1">
+                            <sdk:DataGrid.Columns>
+                                <sdk:DataGridTextColumn Header="Answer" Binding="{Binding Path=FeedbackAnswer}"></sdk:DataGridTextColumn>
+                                    <sdk:DataGridTextColumn Header="Status" Binding="{Binding Path=Status}"/>
+                                <sdk:DataGridTemplateColumn>
+                                    <sdk:DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <HyperlinkButton Height="20" HorizontalAlignment="Center" Name="hbtnEdit"  Width="120" Content="Edit" CommandParameter="{Binding Path= FeedbackAnswerId}" />
+                                        </DataTemplate>
+                                    </sdk:DataGridTemplateColumn.CellTemplate>
+                                </sdk:DataGridTemplateColumn>
+                            </sdk:DataGrid.Columns>
+                        </sdk:DataGrid>
+                        <sdk:DataPager Grid.Row="5" Grid.ColumnSpan="3" Height="26" x:Name="DataPager2"  PageSize="3" Source="{Binding Path=ItemSource,ElementName=gvAnswer}" DisplayMode="FirstLastNumeric" Width="70"   />
+                        
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </StackPanel>
+</navigation:Page>

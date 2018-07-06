@@ -1,0 +1,132 @@
+﻿<navigation:Page x:Class="MemoriesEdge.InnerMainPage" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation" 
+            xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
+            d:DesignWidth="900" d:DesignHeight="480"
+           Title="InnerMainPage Page">
+    <StackPanel Background="#a8a39d">
+        <StackPanel x:Name="LayoutRoot" HorizontalAlignment="Center" Orientation="Vertical" Width="800" Background="WhiteSmoke">
+            <Border x:Name="BrandingBorder">
+                <StackPanel x:Name="BrandingStackPanel">
+                    <Image Height="100" Stretch="Fill" Source="/MemoriesEdge;component/Images/MemoriesEdge.png" />
+                </StackPanel>
+            </Border>
+
+            <StackPanel Background="Brown"  Name="GeneralUpperLinks">
+                <Border x:Name="LinksBorder1" Style="{StaticResource LinksBorderStyle}">
+                    <StackPanel x:Name="GeneralUpperLinksLinksStackPanel1" Style="{StaticResource LinksStackPanelStyle}">
+
+                        <HyperlinkButton x:Name="GeneralUpperLinksLink11" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/Home/General/Login" TargetName="ContentFrame" Content="Login"/>
+
+                        <Rectangle x:Name="GeneralUpperLinksDivider11" Style="{StaticResource DividerStyle}"/>
+                        <HyperlinkButton x:Name="GeneralUpperLinkshbtnSignUp" Style="{StaticResource LinkStyle}"  
+                                     NavigateUri="/Home/General/NewUserRegistration" TargetName="ContentFrame" Content="Sign Up"/>
+
+                        <Rectangle x:Name="GeneralUpperLinksDivider2" Style="{StaticResource DividerStyle}"/>
+
+                        <HyperlinkButton x:Name="GeneralUpperLinksLink21" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/Home/General/About" TargetName="ContentFrame" Content="About"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            
+            <StackPanel Background="Brown" Name="AdminUpperLinks">
+                <Border x:Name="AdminUpperLinksLinksBorder1" Style="{StaticResource LinksBorderStyle}">
+                    <StackPanel x:Name="AdminUpperLinksLinksStackPanel1" Style="{StaticResource LinksStackPanelStyle}">
+
+                        <HyperlinkButton x:Name="AdminUpperLinksLink11" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/Home/Administrator/Home" TargetName="ContentFrame" Content="Home"/>
+
+                        <Rectangle x:Name="AdminUpperLinksDivider2" Style="{StaticResource DividerStyle}"/>
+
+                        <HyperlinkButton x:Name="AdminUpperLinksLink21" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/Home/Administrator/About" TargetName="ContentFrame" Content="About"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Background="Brown"   Name="OperatorUpperLinks">
+                <Border x:Name="OperatorUpperLinksLinksBorder15" Style="{StaticResource LinksBorderStyle}">
+                    <StackPanel x:Name="OperatorUpperLinksLinksStackPanel1" Style="{StaticResource LinksStackPanelStyle}">
+
+                        <HyperlinkButton x:Name="OperatorUpperLinksLink11" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/Home/Operator/UserLoginRegisteredUser" TargetName="ContentFrame" Content="Login"/>
+
+                        <Rectangle x:Name="OperatorUpperLinksDivider2" Style="{StaticResource DividerStyle}"/>
+
+                        <HyperlinkButton x:Name="OperatorUpperLinksLink21" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/Home/Operator/About" TargetName="ContentFrame" Content="About"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Background="Brown"  Name="UserUpperLinks">
+                <Border x:Name="UserUpperLinksLinksBorder1" Style="{StaticResource LinksBorderStyle}">
+                    <StackPanel x:Name="UserUpperLinksLinksStackPanel1" Style="{StaticResource LinksStackPanelStyle}">
+
+                        <HyperlinkButton x:Name="UserUpperLinksLink11" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/Home/User/UserLoginRegisteredUser" TargetName="ContentFrame" Content="Login"/>
+
+                        <Rectangle x:Name="UserUpperLinksDivider2" Style="{StaticResource DividerStyle}"/>
+
+                        <HyperlinkButton x:Name="UserUpperLinksLink21" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/Home/User/About" TargetName="ContentFrame" Content="About"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            
+            <Border x:Name="ContentBorder" Height="Auto" MinHeight="300">
+                <navigation:Frame x:Name="ContentFrame" Source="/Home/General/Login" Navigated="ContentFrame_Navigated" 
+                                      NavigationFailed="ContentFrame_NavigationFailed">
+                    <navigation:Frame.UriMapper>
+                        <uriMapper:UriMapper>
+                            <uriMapper:UriMapping Uri="" MappedUri="/Home/General/LoginArea.xaml"/>
+                            <uriMapper:UriMapping Uri="/Home/General/{pageName}" MappedUri="/Home/General/{pageName}.xaml"/>
+                            <uriMapper:UriMapping Uri="/Home/Administrator/{pageName}" MappedUri="/Home/Administrator/{pageName}.xaml"/>
+                            <uriMapper:UriMapping Uri="/Home/Operator/{pageName}" MappedUri="/Home/Operator/{pageName}.xaml"/>
+                            <uriMapper:UriMapping Uri="/Home/User/{pageName}" MappedUri="/Home/User/{pageName}.xaml"/>
+                        </uriMapper:UriMapper>
+                    </navigation:Frame.UriMapper>
+                </navigation:Frame>
+            </Border>
+
+            <Grid Background="Brown" Height="26">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Grid.Row="0" VerticalAlignment="Center">
+                    <TextBlock x:Name="ApplicationNameTextBlock" Style="{StaticResource ApplicationNameStyle}" Text="  Alpha Net Technologies Pvt. Ltd."/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="0" Name="GeneralBottomRightLinks"  Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <HyperlinkButton x:Name="GeneralLink3" NavigateUri="/Home/General/UserLoginRegisteredUser" TargetName="ContentFrame" Content="Login" VerticalContentAlignment="Center"/>
+                    <Rectangle x:Name="GeneralDivider41" Fill="Black" Width="1" />
+                    <HyperlinkButton x:Name="GeneralLink42" NavigateUri="/Home/General/About" TargetName="ContentFrame" Content="About"  VerticalContentAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Grid.Row="0" Name="AdminBottomRightLinks"  Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <HyperlinkButton x:Name="AdminLink412" NavigateUri="/Home/Administrator/About" TargetName="ContentFrame" Content="About"  VerticalContentAlignment="Center"/>
+                    <Rectangle x:Name="AdminDivider41" Fill="Black" Width="1" />
+                    <HyperlinkButton x:Name="AdminLink42" NavigateUri="/Home/Administrator/About" TargetName="ContentFrame" Content="About"  VerticalContentAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Grid.Row="0" Name="OperatorBottomRightLinks"  Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <HyperlinkButton x:Name="OperatorLink3" NavigateUri="/Home/Operator/UserLoginRegisteredUser" TargetName="ContentFrame" Content="Login" VerticalContentAlignment="Center"/>
+                    <Rectangle x:Name="OperatorDivider41" Fill="Black" Width="1" />
+                    <HyperlinkButton x:Name="OperatorLink42" NavigateUri="/Home/Operator/About" TargetName="ContentFrame" Content="About"  VerticalContentAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Grid.Row="0" Name="UserBottomRightLinks"  Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <HyperlinkButton x:Name="UserLink3" NavigateUri="/Home/User/UserLoginRegisteredUser" TargetName="ContentFrame" Content="Login" VerticalContentAlignment="Center"/>
+                    <Rectangle x:Name="UserDivider41" Fill="Black" Width="1" />
+                    <HyperlinkButton x:Name="UserLink42" NavigateUri="/Home/User/About" TargetName="ContentFrame" Content="About"  VerticalContentAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </StackPanel>
+</navigation:Page>

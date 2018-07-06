@@ -1,0 +1,65 @@
+﻿<navigation:Page x:Class="MemoriesEdge.Home.General.LoginArea" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation" 
+            xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
+            d:DesignWidth="900" d:DesignHeight="480"
+           Title="TestPage Page">
+    <StackPanel Background="#a8a39d">
+        <!--<StackPanel x:Name="LayoutRoot" HorizontalAlignment="Center" Orientation="Vertical" Width="800" Background="WhiteSmoke">
+            <Border x:Name="BrandingBorder">
+                <StackPanel x:Name="BrandingStackPanel">
+                    <Image Height="100" Stretch="Fill" Source="/MemoriesEdge;component/Images/MemoriesEdge.png" />
+                </StackPanel>
+            </Border>
+            <StackPanel Background="Brown">
+                <Border x:Name="LinksBorder1" Style="{StaticResource LinksBorderStyle}">
+                    <StackPanel x:Name="LinksStackPanel1" Style="{StaticResource LinksStackPanelStyle}">
+
+                        <HyperlinkButton x:Name="Link11" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/Login" TargetName="ContentFrame" Content="Login"/>
+
+                        <Rectangle x:Name="Divider11" Style="{StaticResource DividerStyle}"/>
+                        <HyperlinkButton x:Name="hbtnSignUp" Style="{StaticResource LinkStyle}"  
+                                     NavigateUri="/NewUserRegistration" TargetName="ContentFrame" Content="Sign Up"/>
+
+                        <Rectangle x:Name="Divider2" Style="{StaticResource DividerStyle}"/>
+
+                        <HyperlinkButton x:Name="Link21" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/About" TargetName="ContentFrame" Content="About"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <Border x:Name="ContentBorder" Height="Auto" MinHeight="300">
+                <navigation:Frame x:Name="ContentFrame" Source="" Navigated="ContentFrame_Navigated" 
+                                      NavigationFailed="ContentFrame_NavigationFailed">
+                    <navigation:Frame.UriMapper>
+                        <uriMapper:UriMapper>
+                            <uriMapper:UriMapping Uri="" MappedUri="/General/Home.xaml"/>
+                            <uriMapper:UriMapping Uri="/{pageName}" MappedUri="/General/{pageName}.xaml"/>
+                        </uriMapper:UriMapper>
+                    </navigation:Frame.UriMapper>
+                </navigation:Frame>
+            </Border>
+
+            <Grid Background="Brown" Height="26">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Grid.Row="0" VerticalAlignment="Center">
+                    <TextBlock x:Name="ApplicationNameTextBlock" Style="{StaticResource ApplicationNameStyle}" Text="  Alpha Net Technologies Pvt. Ltd."/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="0"   Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <HyperlinkButton x:Name="Link3" NavigateUri="/UserLoginRegisteredUser" TargetName="ContentFrame" Content="Login" VerticalContentAlignment="Center"/>
+                    <Rectangle x:Name="Divider41" Fill="Black" Width="1" />
+                    <HyperlinkButton x:Name="Link42" NavigateUri="/About" TargetName="ContentFrame" Content="About"  VerticalContentAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>-->
+    </StackPanel>
+</navigation:Page>

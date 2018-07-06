@@ -1,0 +1,141 @@
+﻿<navigation:Page xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="MemoriesEdgeAdmin.Pages.AddEditOperator" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+            d:DesignHeight="380"
+           Title="AddEditOperator Page" Loaded="Page_Loaded" d:DesignWidth="337">
+    <StackPanel Width="Auto">
+        <Grid x:Name="AddEditGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <sdk:Label Grid.Row="0" Height="20" HorizontalAlignment="Left" Name="lblMsg" Foreground="Red" />
+            <Border Grid.Row="1">
+                <StackPanel Width="Auto">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Content="&lt;&lt;Back To Operators" Height="20" HorizontalAlignment="Left"  Name="btnBackToOperators"  />
+                        <Border Grid.Row="1">
+                            <StackPanel Width="Auto">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <sdk:Label Grid.Row="0" Grid.Column="0" Height="20" HorizontalAlignment="Center" Name="label1" FontWeight="Bold"  Content="User Name"/>
+                                    <sdk:Label Grid.Column="0" Grid.Row="1" Height="20" HorizontalAlignment="Center" Name="label2" FontWeight="Bold"  Content="Password"/>
+                                    <sdk:Label Grid.Column="0" Grid.Row="2" Height="20" HorizontalAlignment="Center" Name="label3" Content="Confirm Password" FontWeight="Bold" />
+                                    <TextBox Grid.Row="0" Height="20" HorizontalAlignment="Center" Name="txtUserName" Grid.Column="1" Width="120" Text="{Binding UserName,Mode=TwoWay,ValidatesOnDataErrors=True}"/>
+                                    <HyperlinkButton Grid.Column="2" Grid.Row="0" Content="Check Availability" Height="20" HorizontalAlignment="Left" Name="hbtnCheckAvailability" VerticalAlignment="Center" Click="hbtnCheckAvailability_Click" />
+                                    <Image Grid.Column="2" Height="20" HorizontalAlignment="Right" Name="imgCheck" VerticalAlignment="Top" Width="25" />
+                                    <PasswordBox Grid.Row="1" Height="20" Name="txtPassword" Grid.Column="1" Width="120" Password="{Binding Password,Mode=TwoWay,ValidatesOnDataErrors=True}" PasswordChar="*" />
+                                    <PasswordBox Grid.Row="2" Height="20" Name="txtConfirmPassword" Grid.Column="1" Width="120" Password="{Binding ConfirmPassword,Mode=TwoWay,ValidatesOnDataErrors=True}" PasswordChar="*" />
+
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border Grid.Row="2">
+                            <StackPanel Width="Auto">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="113"></ColumnDefinition>
+                                        <ColumnDefinition Width="88"></ColumnDefinition>
+                                        <ColumnDefinition Width="32"></ColumnDefinition>
+                                        <ColumnDefinition Width="102*" />
+                                    </Grid.ColumnDefinitions>
+                                    <sdk:Label Height="20" HorizontalAlignment="Center" Name="label4" FontWeight="Bold"  Content="Initials" Margin="18,0,50,0" />
+                                    <sdk:Label Grid.Row="1" Height="20" HorizontalAlignment="Center" Name="label5" FontWeight="Bold"  Content="Name" Margin="22,0,54,0" />
+                                    <sdk:Label Grid.Row="2" Height="20" HorizontalAlignment="Center" Name="label6" FontWeight="Bold"  Content="Date Of Birth" Margin="0,2,32,2" />
+                                    <sdk:Label Grid.Row="3" Height="20" HorizontalAlignment="Center" Name="label7" FontWeight="Bold"  Content="Gender" Margin="18,0,50,0" />
+                                    <sdk:Label Grid.Row="4" Height="20" HorizontalAlignment="Center" Name="label8" FontWeight="Bold"  Content="Phone" Margin="21,0,53,0" />
+                                    <sdk:Label Grid.Row="5" Height="20" HorizontalAlignment="Center" Name="label9" FontWeight="Bold"  Content="Mobile" Margin="20,0,52,0" />
+                                    <sdk:Label Grid.Row="6" Height="20" HorizontalAlignment="Center" Name="label10" FontWeight="Bold"  Content="Email Id" Margin="14,0,46,0" />
+                                    <ComboBox Height="20" HorizontalAlignment="Center" Name="ddlInitials"  Width="120" Grid.ColumnSpan="2" Grid.Column="1">
+                                        <ComboBox.Items>
+                                            <ComboBoxItem Content="Select" IsSelected="True"></ComboBoxItem>
+                                            <ComboBoxItem Content="MR"></ComboBoxItem>
+                                            <ComboBoxItem Content="MRS"></ComboBoxItem>
+                                            <ComboBoxItem Content="Doctor"></ComboBoxItem>
+                                        </ComboBox.Items>
+                                    </ComboBox>
+                                    <TextBox Grid.Row="1" Height="20" HorizontalAlignment="Center" Name="txtName" Width="120" Grid.ColumnSpan="2" Grid.Column="1" />
+                                    <sdk:DatePicker Name="dtDOB" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="1" />
+                                    <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="88,0,7,0">
+                                        <RadioButton Content="Male"  Height="16" HorizontalAlignment="Center" Name="rbtnMale" GroupName="Gender" IsChecked="True" />
+                                    </StackPanel>
+                                    <TextBox Grid.Row="4" Height="20" HorizontalAlignment="Center" Name="txtPhone"  Width="120" Text="{Binding Phone,Mode=TwoWay,ValidatesOnDataErrors=True}" Grid.ColumnSpan="2" Grid.Column="1" />
+                                    <TextBox Grid.Row="5" Height="20" HorizontalAlignment="Center" Name="txtMobile"  Width="120" Text="{Binding Mobile,Mode=TwoWay,ValidatesOnDataErrors=True}" Grid.ColumnSpan="2" Grid.Column="1" />
+                                    <TextBox Grid.Row="6" Height="20" HorizontalAlignment="Center" Name="txtEmailId"  Width="120" Text="{Binding EmailId,Mode=TwoWay,ValidatesOnDataErrors=True}" Grid.ColumnSpan="2" Grid.Column="1" />
+                                    <RadioButton Content="Female" Height="16" HorizontalAlignment="Center" Name="rbtnFemale" Grid.Column="1" Grid.ColumnSpan="2" Margin="60,0,0,4" Grid.Row="3" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border Grid.Row="3">
+                            <StackPanel Width="Auto">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="161*" />
+                                    </Grid.ColumnDefinitions>
+                                    <sdk:Label Grid.Row="0" Grid.Column="0" Height="20" HorizontalAlignment="Center" Name="labe1" FontWeight="Bold"  Content="Address"/>
+                                    <sdk:Label Grid.Row="3" Grid.Column="0" Height="20" HorizontalAlignment="Center" Name="labe2" FontWeight="Bold"  Content="City"/>
+                                    <sdk:Label Grid.Row="2" Grid.Column="0" Height="20" HorizontalAlignment="Center" Name="labe3" FontWeight="Bold"  Content="State"/>
+                                    <sdk:Label Grid.Row="1" Grid.Column="0" Height="20" HorizontalAlignment="Center" Name="labe4" FontWeight="Bold"  Content="Country"/>
+                                    <sdk:Label Grid.Row="4" Grid.Column="0" Height="20" HorizontalAlignment="Center" Name="labe5" FontWeight="Bold"  Content="Pin Code"/>
+                                    <TextBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Name="txtAddress" Width="120" AcceptsReturn="True" Text="{Binding Address,Mode=TwoWay,ValidatesOnDataErrors=True}" Margin="59,0,102,0"/>
+                                    <ComboBox Grid.Row="3" Grid.Column="1" Height="20" HorizontalAlignment="Center" Name="ddlCity"  Width="120" Grid.ColumnSpan="3" Margin="59,0,102,0" />
+                                    <ComboBox Grid.Row="2" Grid.Column="1" Height="20" HorizontalAlignment="Center" Name="ddlState"  Width="120" Grid.ColumnSpan="3" Margin="59,0,102,0" SelectionChanged="ddlState_SelectionChanged" />
+                                    <ComboBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Name="ddlCountry"  Width="120" Margin="59,0,102,0" SelectionChanged="ddlCountry_SelectionChanged" Height="20" VerticalAlignment="Top" />
+                                    <TextBox Grid.Row="4" Height="20" HorizontalAlignment="Center" Grid.Column="1" Name="txtPinCode" Width="120" Text="{Binding PinCode,Mode=TwoWay,ValidatesOnDataErrors=True}" Grid.ColumnSpan="3" Margin="59,0,102,0" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                    <Button Content="Save"  Height="23" Name="btnSave" Width="75" Click="btnSave_Click" />
+                </StackPanel>
+
+            </Border>
+
+        </Grid>
+    </StackPanel>
+</navigation:Page>

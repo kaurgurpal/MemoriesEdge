@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="wcfAdmin" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1108/wcfAdmin.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1108/wcfAdmin.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1108/wcfAdmin.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MemoriesEdge.Web" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IwcfAdmin_SaveAnswers_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveAnswers" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_SaveAnswers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveAnswersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_UpdateAnswers_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAnswers" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_UpdateAnswers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAnswersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetUsersFeedback_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersFeedback" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetUsersFeedback_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersFeedbackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetAllUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetAllUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_ChangeStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeStatus" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_ChangeStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_DisplayAllUserDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:DisplayAllUserDetail" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_DisplayAllUserDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DisplayAllUserDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_DisplaySpecificUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DisplaySpecificUser" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_DisplaySpecificUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DisplaySpecificUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetSecurityQuestions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecurityQuestions" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetSecurityQuestions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecurityQuestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountry" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetState" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCity" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_CheckAvailability_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAvailability" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_CheckAvailability_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_InsertNewUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertNewUser" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_InsertNewUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertNewUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetAllCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCountry" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetAllCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetAllState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllState" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetAllState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetAllCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCity" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetAllCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_CheckUserAvailability_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserAvailability" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_CheckUserAvailability_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_AddNewUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewUser" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_AddNewUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDetail" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_LoginUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUser" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_LoginUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPassword" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetUserPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPassword" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetUserPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_UpdatePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePassword" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_UpdatePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetAllQuestions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllQuestions" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetAllQuestions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllQuestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetAllAnswers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAnswers" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_GetAllAnswers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAnswersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_SaveQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_SaveQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_UpdateQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_UpdateQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_ShowQuestionStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShowQuestionStatus" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_ShowQuestionStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShowQuestionStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_DispalyQues_InputMessage">
+    <wsdl:part name="parameters" element="tns:DispalyQues" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_DispalyQues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DispalyQuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_ShowAnswerStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShowAnswerStatus" />
+  </wsdl:message>
+  <wsdl:message name="IwcfAdmin_ShowAnswerStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShowAnswerStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IwcfAdmin">
+    <wsdl:operation name="SaveAnswers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/SaveAnswers" message="tns:IwcfAdmin_SaveAnswers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/SaveAnswersResponse" message="tns:IwcfAdmin_SaveAnswers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAnswers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/UpdateAnswers" message="tns:IwcfAdmin_UpdateAnswers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/UpdateAnswersResponse" message="tns:IwcfAdmin_UpdateAnswers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersFeedback">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/GetUsersFeedback" message="tns:IwcfAdmin_GetUsersFeedback_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/GetUsersFeedbackResponse" message="tns:IwcfAdmin_GetUsersFeedback_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/GetAllUsers" message="tns:IwcfAdmin_GetAllUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/GetAllUsersResponse" message="tns:IwcfAdmin_GetAllUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/GetUser" message="tns:IwcfAdmin_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/GetUserResponse" message="tns:IwcfAdmin_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/ChangeStatus" message="tns:IwcfAdmin_ChangeStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/ChangeStatusResponse" message="tns:IwcfAdmin_ChangeStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DisplayAllUserDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/DisplayAllUserDetail" message="tns:IwcfAdmin_DisplayAllUserDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/DisplayAllUserDetailResponse" message="tns:IwcfAdmin_DisplayAllUserDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DisplaySpecificUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/DisplaySpecificUser" message="tns:IwcfAdmin_DisplaySpecificUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/DisplaySpecificUserResponse" message="tns:IwcfAdmin_DisplaySpecificUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityQuestions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/GetSecurityQuestions" message="tns:IwcfAdmin_GetSecurityQuestions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/GetSecurityQuestionsResponse" message="tns:IwcfAdmin_GetSecurityQuestions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/GetCountry" message="tns:IwcfAdmin_GetCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/GetCountryResponse" message="tns:IwcfAdmin_GetCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/GetState" message="tns:IwcfAdmin_GetState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/GetStateResponse" message="tns:IwcfAdmin_GetState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/GetCity" message="tns:IwcfAdmin_GetCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/GetCityResponse" message="tns:IwcfAdmin_GetCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAvailability">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/CheckAvailability" message="tns:IwcfAdmin_CheckAvailability_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/CheckAvailabilityResponse" message="tns:IwcfAdmin_CheckAvailability_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/InsertNewUser" message="tns:IwcfAdmin_InsertNewUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/InsertNewUserResponse" message="tns:IwcfAdmin_InsertNewUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/GetAllCountry" message="tns:IwcfAdmin_GetAllCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/GetAllCountryResponse" message="tns:IwcfAdmin_GetAllCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/GetAllState" message="tns:IwcfAdmin_GetAllState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/GetAllStateResponse" message="tns:IwcfAdmin_GetAllState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/GetAllCity" message="tns:IwcfAdmin_GetAllCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/GetAllCityResponse" message="tns:IwcfAdmin_GetAllCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserAvailability">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/CheckUserAvailability" message="tns:IwcfAdmin_CheckUserAvailability_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/CheckUserAvailabilityResponse" message="tns:IwcfAdmin_CheckUserAvailability_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/AddNewUser" message="tns:IwcfAdmin_AddNewUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/AddNewUserResponse" message="tns:IwcfAdmin_AddNewUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/GetDetail" message="tns:IwcfAdmin_GetDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/GetDetailResponse" message="tns:IwcfAdmin_GetDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/LoginUser" message="tns:IwcfAdmin_LoginUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/LoginUserResponse" message="tns:IwcfAdmin_LoginUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/GetPassword" message="tns:IwcfAdmin_GetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/GetPasswordResponse" message="tns:IwcfAdmin_GetPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/GetUserPassword" message="tns:IwcfAdmin_GetUserPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/GetUserPasswordResponse" message="tns:IwcfAdmin_GetUserPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/UpdatePassword" message="tns:IwcfAdmin_UpdatePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/UpdatePasswordResponse" message="tns:IwcfAdmin_UpdatePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllQuestions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/GetAllQuestions" message="tns:IwcfAdmin_GetAllQuestions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/GetAllQuestionsResponse" message="tns:IwcfAdmin_GetAllQuestions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAnswers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/GetAllAnswers" message="tns:IwcfAdmin_GetAllAnswers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/GetAllAnswersResponse" message="tns:IwcfAdmin_GetAllAnswers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/SaveQuestion" message="tns:IwcfAdmin_SaveQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/SaveQuestionResponse" message="tns:IwcfAdmin_SaveQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/UpdateQuestion" message="tns:IwcfAdmin_UpdateQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/UpdateQuestionResponse" message="tns:IwcfAdmin_UpdateQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowQuestionStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/ShowQuestionStatus" message="tns:IwcfAdmin_ShowQuestionStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/ShowQuestionStatusResponse" message="tns:IwcfAdmin_ShowQuestionStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DispalyQues">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/DispalyQues" message="tns:IwcfAdmin_DispalyQues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/DispalyQuesResponse" message="tns:IwcfAdmin_DispalyQues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowAnswerStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfAdmin/ShowAnswerStatus" message="tns:IwcfAdmin_ShowAnswerStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfAdmin/ShowAnswerStatusResponse" message="tns:IwcfAdmin_ShowAnswerStatus_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IwcfAdmin" type="tns:IwcfAdmin">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SaveAnswers">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/SaveAnswers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAnswers">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/UpdateAnswers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersFeedback">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/GetUsersFeedback" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeStatus">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/ChangeStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisplayAllUserDetail">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/DisplayAllUserDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisplaySpecificUser">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/DisplaySpecificUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityQuestions">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/GetSecurityQuestions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountry">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/GetCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetState">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/GetState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCity">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/GetCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAvailability">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/CheckAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewUser">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/InsertNewUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCountry">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/GetAllCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllState">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/GetAllState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCity">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/GetAllCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserAvailability">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/CheckUserAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewUser">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/AddNewUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetail">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/GetDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginUser">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/LoginUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPassword">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/GetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPassword">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/GetUserPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassword">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/UpdatePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllQuestions">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/GetAllQuestions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAnswers">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/GetAllAnswers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveQuestion">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/SaveQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateQuestion">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/UpdateQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowQuestionStatus">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/ShowQuestionStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DispalyQues">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/DispalyQues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowAnswerStatus">
+      <soap:operation soapAction="http://tempuri.org/IwcfAdmin/ShowAnswerStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wcfAdmin">
+    <wsdl:port name="BasicHttpBinding_IwcfAdmin" binding="tns:BasicHttpBinding_IwcfAdmin">
+      <soap:address location="http://localhost:1108/wcfAdmin.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

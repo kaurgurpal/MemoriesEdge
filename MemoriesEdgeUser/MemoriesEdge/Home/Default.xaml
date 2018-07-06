@@ -1,0 +1,12 @@
+﻿<navigation:Page x:Class="MemoriesEdge.Home.Default" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="590" Background="#012035" Title="LoginHome">
+    <StackPanel x:Name="LayoutRoot" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Vertical" Width="1000"  Background="#012035" Height="590">
+        <Image Source="/MemoriesEdge;component/Images/outer_back.jpg"></Image>
+        <HyperlinkButton  Content="Login" Height="28" Name="btnLogin" Click="btnLogin_Click" Width="50" Foreground="#9eaca8"  VerticalAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" FontSize="16" HorizontalAlignment="Right" />
+    </StackPanel>
+</navigation:Page>

@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MemoriesEdge" Class="MemoriesEdgeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=localhost;Initial Catalog=MemoriesEdge;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MemoriesEdgeConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CityMaster" Member="CityMasters">
+    <Type Name="CityMaster">
+      <Column Name="City_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="State_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="StateMaster_CityMaster" Member="StateMaster" ThisKey="State_ID" OtherKey="State_ID" Type="StateMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CountryMaster" Member="CountryMasters">
+    <Type Name="CountryMaster">
+      <Column Name="Country_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Country" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="CountryMaster_StateMaster" Member="StateMasters" ThisKey="Country_ID" OtherKey="Country_ID" Type="StateMaster" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FeedbackAnswerMaster" Member="FeedbackAnswerMasters">
+    <Type Name="FeedbackAnswerMaster">
+      <Column Name="Feedback_Answer_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Feedback_Question_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Feedback_Answer" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="FeedbackAnswerMaster_UserFeedbackDetail" Member="UserFeedbackDetails" ThisKey="Feedback_Answer_ID" OtherKey="Feedback_Answer_ID" Type="UserFeedbackDetail" />
+      <Association Name="FeedbackQuestionMaster_FeedbackAnswerMaster" Member="FeedbackQuestionMaster" ThisKey="Feedback_Question_ID" OtherKey="Feedback_Question_ID" Type="FeedbackQuestionMaster" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FeedbackQuestionMaster" Member="FeedbackQuestionMasters">
+    <Type Name="FeedbackQuestionMaster">
+      <Column Name="Feedback_Question_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Feedback_Question" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="FeedbackQuestionMaster_FeedbackAnswerMaster" Member="FeedbackAnswerMasters" ThisKey="Feedback_Question_ID" OtherKey="Feedback_Question_ID" Type="FeedbackAnswerMaster" />
+      <Association Name="FeedbackQuestionMaster_UserFeedbackDetail" Member="UserFeedbackDetails" ThisKey="Feedback_Question_ID" OtherKey="Feedback_Question_ID" Type="UserFeedbackDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OperatorMaster" Member="OperatorMasters">
+    <Type Name="OperatorMaster">
+      <Column Name="Operator_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="User_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="User_Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Last_Login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="User_Status" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="Initial" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email_ID" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="OperatorMaster_OperatorAddress" Member="OperatorAddress" ThisKey="Operator_ID" OtherKey="Operator_ID" Type="OperatorAddress" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SupportMaster" Member="SupportMasters">
+    <Type Name="SupportMaster">
+      <Column Name="Support_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Support_Type_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Email_ID" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Query" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Submit_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Support_Status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="SupportMaster_SupportResponse" Member="SupportResponses" ThisKey="Support_ID" OtherKey="Support_ID" Type="SupportResponse" />
+      <Association Name="SupportTypeMaster_SupportMaster" Member="SupportTypeMaster" ThisKey="Support_Type_ID" OtherKey="Support_Type_ID" Type="SupportTypeMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StateMaster" Member="StateMasters">
+    <Type Name="StateMaster">
+      <Column Name="State_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Country_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="StateMaster_CityMaster" Member="CityMasters" ThisKey="State_ID" OtherKey="State_ID" Type="CityMaster" />
+      <Association Name="CountryMaster_StateMaster" Member="CountryMaster" ThisKey="Country_ID" OtherKey="Country_ID" Type="CountryMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SecurityQuestionMaster" Member="SecurityQuestionMasters">
+    <Type Name="SecurityQuestionMaster">
+      <Column Name="Security_Question_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Security_Question" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="SecurityQuestionMaster_UserMaster" Member="UserMasters" ThisKey="Security_Question_ID" OtherKey="Security_Question_ID" Type="UserMaster" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AdvertisementMaster" Member="AdvertisementMasters">
+    <Type Name="AdvertisementMaster">
+      <Column Name="Advertisement_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Advertisement_Title" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Alternate_Text" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Navigate_URL" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Image_URL" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Keywords" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Impressions" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Create_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AlbumGroupPermissions" Member="AlbumGroupPermissions">
+    <Type Name="AlbumGroupPermission">
+      <Column Name="Album_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Group_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Can_Copy" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="AlbumMaster_AlbumGroupPermission" Member="AlbumMaster" ThisKey="Album_ID" OtherKey="Album_ID" Type="AlbumMaster" IsForeignKey="true" />
+      <Association Name="GroupMaster_AlbumGroupPermission" Member="GroupMaster" ThisKey="Group_ID" OtherKey="Group_ID" Type="GroupMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AlbumImages" Member="AlbumImages">
+    <Type Name="AlbumImage">
+      <Column Name="Image_ID" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Image_Title" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Image_Path" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Album_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Create_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="AlbumImage_ImageComment" Member="ImageComments" ThisKey="Image_ID" OtherKey="Image_ID" Type="ImageComment" />
+      <Association Name="AlbumMaster_AlbumImage" Member="AlbumMaster" ThisKey="Album_ID" OtherKey="Album_ID" Type="AlbumMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AlbumMaster" Member="AlbumMasters">
+    <Type Name="AlbumMaster">
+      <Column Name="Album_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Album_Title" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Album_Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Cover_Image_Path" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="User_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Create_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="AlbumMaster_AlbumGroupPermission" Member="AlbumGroupPermissions" ThisKey="Album_ID" OtherKey="Album_ID" Type="AlbumGroupPermission" />
+      <Association Name="AlbumMaster_AlbumImage" Member="AlbumImages" ThisKey="Album_ID" OtherKey="Album_ID" Type="AlbumImage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DiscussionMaster" Member="DiscussionMasters">
+    <Type Name="DiscussionMaster">
+      <Column Name="Discussion_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Discussion_Topic" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Discussion_Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="User_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Create_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="DiscussionMaster_DiscussionResponse" Member="DiscussionResponses" ThisKey="Discussion_ID" OtherKey="Discussion_ID" Type="DiscussionResponse" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DiscussionResponse" Member="DiscussionResponses">
+    <Type Name="DiscussionResponse">
+      <Column Name="Rsponse_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Discussion_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Response" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="User_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Response_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="DiscussionMaster_DiscussionResponse" Member="DiscussionMaster" ThisKey="Discussion_ID" OtherKey="Discussion_ID" Type="DiscussionMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FAQMaster" Member="FAQMasters">
+    <Type Name="FAQMaster">
+      <Column Name="FAQ_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FAQ" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="Answer" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Post_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FriendMaster" Member="FriendMasters">
+    <Type Name="FriendMaster">
+      <Column Name="User_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Friend_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Create_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="UserMaster_FriendMaster" Member="UserMaster" ThisKey="User_ID" OtherKey="User_ID" Type="UserMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FriendRequest" Member="FriendRequests">
+    <Type Name="FriendRequest">
+      <Column Name="Friend_Request_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="User_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Friend_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Request_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="UserMaster_FriendRequest" Member="UserMaster" ThisKey="User_ID" OtherKey="User_ID" Type="UserMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GroupMaster" Member="GroupMasters">
+    <Type Name="GroupMaster">
+      <Column Name="Group_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="User_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Group_Name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Group_Description" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="GroupMaster_AlbumGroupPermission" Member="AlbumGroupPermissions" ThisKey="Group_ID" OtherKey="Group_ID" Type="AlbumGroupPermission" />
+      <Association Name="GroupMaster_GroupMember" Member="GroupMembers" ThisKey="Group_ID" OtherKey="Group_ID" Type="GroupMember" />
+      <Association Name="UserMaster_GroupMaster" Member="UserMaster" ThisKey="User_ID" OtherKey="User_ID" Type="UserMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GroupMembers" Member="GroupMembers">
+    <Type Name="GroupMember">
+      <Column Name="Group_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Friend_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="GroupMaster_GroupMember" Member="GroupMaster" ThisKey="Group_ID" OtherKey="Group_ID" Type="GroupMaster" IsForeignKey="true" />
+      <Association Name="UserMaster_GroupMember" Member="UserMaster" ThisKey="Friend_ID" OtherKey="User_ID" Type="UserMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ImageComments" Member="ImageComments">
+    <Type Name="ImageComment">
+      <Column Name="Comment_ID" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Image_ID" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Friend_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Image_Comment" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Comment_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="AlbumImage_ImageComment" Member="AlbumImage" ThisKey="Image_ID" OtherKey="Image_ID" Type="AlbumImage" IsForeignKey="true" />
+      <Association Name="UserMaster_ImageComment" Member="UserMaster" ThisKey="Friend_ID" OtherKey="User_ID" Type="UserMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NewsletterMaster" Member="NewsletterMasters">
+    <Type Name="NewsletterMaster">
+      <Column Name="Newsletter_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Newsletter_Title" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Newsletter_Path" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Sent_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Newsletter_Status" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OperatorAddress" Member="OperatorAddresses">
+    <Type Name="OperatorAddress">
+      <Column Name="Operator_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Pin_Code" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="OperatorMaster_OperatorAddress" Member="OperatorMaster" ThisKey="Operator_ID" OtherKey="Operator_ID" Type="OperatorMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RequestMaster" Member="RequestMasters">
+    <Type Name="RequestMaster">
+      <Column Name="Request_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Request_Title" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Request_Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="User_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Request_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="RequestMaster_ResponseMaster" Member="ResponseMasters" ThisKey="Request_ID" OtherKey="Request_ID" Type="ResponseMaster" />
+      <Association Name="UserMaster_RequestMaster" Member="UserMaster" ThisKey="User_ID" OtherKey="User_ID" Type="UserMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ResponseMaster" Member="ResponseMasters">
+    <Type Name="ResponseMaster">
+      <Column Name="Response_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Request_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Response" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Response_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="RequestMaster_ResponseMaster" Member="RequestMaster" ThisKey="Request_ID" OtherKey="Request_ID" Type="RequestMaster" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SupportResponse" Member="SupportResponses">
+    <Type Name="SupportResponse">
+      <Column Name="Response_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Support_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Response" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Response_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="SupportMaster_SupportResponse" Member="SupportMaster" ThisKey="Support_ID" OtherKey="Support_ID" Type="SupportMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SupportTypeMaster" Member="SupportTypeMasters">
+    <Type Name="SupportTypeMaster">
+      <Column Name="Support_Type_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Support_Type" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Support_Description" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="SupportTypeMaster_SupportMaster" Member="SupportMasters" ThisKey="Support_Type_ID" OtherKey="Support_Type_ID" Type="SupportMaster" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ThemeMaster" Member="ThemeMasters">
+    <Type Name="ThemeMaster">
+      <Column Name="Theme_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Theme_Title" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Theme_Image_Path" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Theme_Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Create_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="ThemeMaster_UserTheme" Member="UserThemes" ThisKey="Theme_ID" OtherKey="Theme_ID" Type="UserTheme" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserAddress" Member="UserAddresses">
+    <Type Name="UserAddress">
+      <Column Name="User_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Pin_Code" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="UserMaster_UserAddress" Member="UserMaster" ThisKey="User_ID" OtherKey="User_ID" Type="UserMaster" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserDetails" Member="UserDetails">
+    <Type Name="UserDetail">
+      <Column Name="User_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Initial" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email_Id" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="UserMaster_UserDetail" Member="UserMaster" ThisKey="User_ID" OtherKey="User_ID" Type="UserMaster" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserFeedbackDetail" Member="UserFeedbackDetails">
+    <Type Name="UserFeedbackDetail">
+      <Column Name="User_Feedback_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Feedback_Question_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Feedback_Answer_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="FeedbackAnswerMaster_UserFeedbackDetail" Member="FeedbackAnswerMaster" ThisKey="Feedback_Answer_ID" OtherKey="Feedback_Answer_ID" Type="FeedbackAnswerMaster" IsForeignKey="true" />
+      <Association Name="FeedbackQuestionMaster_UserFeedbackDetail" Member="FeedbackQuestionMaster" ThisKey="Feedback_Question_ID" OtherKey="Feedback_Question_ID" Type="FeedbackQuestionMaster" IsForeignKey="true" />
+      <Association Name="UserFeedbackMaster_UserFeedbackDetail" Member="UserFeedbackMaster" ThisKey="User_Feedback_ID" OtherKey="User_Feedback_ID" Type="UserFeedbackMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserFeedbackMaster" Member="UserFeedbackMasters">
+    <Type Name="UserFeedbackMaster">
+      <Column Name="User_Feedback_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="User_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Additional_Feedback" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Feedback_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="UserFeedbackMaster_UserFeedbackDetail" Member="UserFeedbackDetails" ThisKey="User_Feedback_ID" OtherKey="User_Feedback_ID" Type="UserFeedbackDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserImage" Member="UserImages">
+    <Type Name="UserImage">
+      <Column Name="User_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Image_Path" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="UserMaster_UserImage" Member="UserMaster" ThisKey="User_ID" OtherKey="User_ID" Type="UserMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserMaster" Member="UserMasters">
+    <Type Name="UserMaster">
+      <Column Name="User_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="User_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="User_Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="User_Type" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Security_Question_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Security_Answer" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Last_Login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="User_Status" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="UserMaster_FriendMaster" Member="FriendMasters" ThisKey="User_ID" OtherKey="User_ID" Type="FriendMaster" />
+      <Association Name="UserMaster_FriendRequest" Member="FriendRequests" ThisKey="User_ID" OtherKey="User_ID" Type="FriendRequest" />
+      <Association Name="UserMaster_GroupMaster" Member="GroupMasters" ThisKey="User_ID" OtherKey="User_ID" Type="GroupMaster" />
+      <Association Name="UserMaster_GroupMember" Member="GroupMembers" ThisKey="User_ID" OtherKey="Friend_ID" Type="GroupMember" />
+      <Association Name="UserMaster_ImageComment" Member="ImageComments" ThisKey="User_ID" OtherKey="Friend_ID" Type="ImageComment" />
+      <Association Name="UserMaster_RequestMaster" Member="RequestMasters" ThisKey="User_ID" OtherKey="User_ID" Type="RequestMaster" />
+      <Association Name="UserMaster_UserAddress" Member="UserAddress" ThisKey="User_ID" OtherKey="User_ID" Type="UserAddress" Cardinality="One" />
+      <Association Name="UserMaster_UserDetail" Member="UserDetail" ThisKey="User_ID" OtherKey="User_ID" Type="UserDetail" Cardinality="One" />
+      <Association Name="UserMaster_UserImage" Member="UserImage" ThisKey="User_ID" OtherKey="User_ID" Type="UserImage" Cardinality="One" />
+      <Association Name="UserMaster_UserTheme" Member="UserTheme" ThisKey="User_ID" OtherKey="User_ID" Type="UserTheme" Cardinality="One" />
+      <Association Name="SecurityQuestionMaster_UserMaster" Member="SecurityQuestionMaster" ThisKey="Security_Question_ID" OtherKey="Security_Question_ID" Type="SecurityQuestionMaster" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserTheme" Member="UserThemes">
+    <Type Name="UserTheme">
+      <Column Name="User_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Theme_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="ThemeMaster_UserTheme" Member="ThemeMaster" ThisKey="Theme_ID" OtherKey="Theme_ID" Type="ThemeMaster" IsForeignKey="true" />
+      <Association Name="UserMaster_UserTheme" Member="UserMaster" ThisKey="User_ID" OtherKey="User_ID" Type="UserMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
